@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+  database_mtgl:
+    image: postgres
+    container_name: database_mtgl
+    restart: always
+    network_mode: host
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=mtgl
+      - POSTGRES_DB=mtgl
+    volumes:
+      - pgdata:/data/postgres
+  app:
+    build: .
+    container_name: mtg_league
+    network_mode: host
+    ports:
+      - 3333:3333
+    volumes:
+      - .:/usr/app
+
+volumes:
+  pgdata:
+    driver: local
