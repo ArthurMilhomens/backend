@@ -5,16 +5,24 @@ import { getUsers } from "../repositories/ListUsersRepository";
 
 export async function createUserController(req: Request, res: Response) {
     const data: CreateUser = req.body;
-    const users = await getUsers();
+    const file = req.file?.filename.split('.')[0]
+    // const users = await getUsers();
 
-    const userAlreadyExists = users.find(user => user.email === data.email)
+    console.log('controller -> ', data);
+    console.log('file -> ', file);
 
-    if (userAlreadyExists) {
-        return res.status(400).json({ message: "User already exists" })
-    }
+    // const userAlreadyExists = users.find(user => user.email === data.email)
 
-    const user = await createUser(data)
+    // if (userAlreadyExists) {
+    //     return res.status(400).json({ message: "User already exists" })
+    // }
 
-    return res.status(201).json(user)
+    // const user = await createUser({
+    //     ...data,
+    //     profileImage: file
+    // })
+
+    // return res.status(201).json(user)
+    return res.status(200)
 }
 

@@ -8,6 +8,8 @@ const jwt = new Token();
 export async function createUser(data: CreateUser): Promise<User> {
     const prisma = new PrismaClient();
 
+    console.log(data)
+
     data.password = bcrypt.hashSync(data.password, 8);
 
     const user = await prisma.user.create({

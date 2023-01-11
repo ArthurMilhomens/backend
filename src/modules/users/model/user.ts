@@ -13,6 +13,7 @@ export interface CreateUser {
     email: string;
     password: string;
     decks?: Deck[];
+    profileImage?: string;
 }
 
 export interface UpdateUser {

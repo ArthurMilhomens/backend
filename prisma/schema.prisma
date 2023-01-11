@@ -10,11 +10,12 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(uuid())
-  name     String
-  email    String @unique
-  password String
-  decks    Deck[]
+  id           String  @id @default(uuid())
+  name         String
+  email        String  @unique
+  password     String
+  decks        Deck[]
+  profileImage String?
 }
 
 model Deck {
