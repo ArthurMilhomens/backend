@@ -16,6 +16,7 @@ export async function authenticate({ email, password }: LoginUser): Promise<User
             name: true,
             email: true,
             password: true,
+            profileImage: true,
         }
     });
 
@@ -29,6 +30,7 @@ export async function authenticate({ email, password }: LoginUser): Promise<User
         id: user.id,
         name: user.name,
         email: user.email,
+        profileImage: user.profileImage,
         accessToken
     };
 

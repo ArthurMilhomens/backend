@@ -11,6 +11,7 @@ export async function updateUser(data: UpdateUser, userId: string): Promise<User
             id: true,
             name: true,
             email: true,
+            profileImage: true,
         }
     });
 

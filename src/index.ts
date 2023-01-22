@@ -5,9 +5,10 @@ import cors from 'cors';
 const app = express();
 
 app.use(express.json());
+app.use("/images", express.static('uploads'));
 
 app.use(cors());
 
 app.use(router);
 
-app.listen(3333)
+app.listen(3333);

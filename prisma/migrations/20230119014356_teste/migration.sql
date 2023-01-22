@@ -4,6 +4,7 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
+    "profileImage" TEXT,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -14,7 +15,7 @@ CREATE TABLE "Deck" (
     "name" TEXT NOT NULL,
     "colors" TEXT[],
     "cards" TEXT[],
-    "userId" TEXT,
+    "userId" TEXT NOT NULL,
 
     CONSTRAINT "Deck_pkey" PRIMARY KEY ("id")
 );

@@ -8,6 +8,7 @@ export async function getUsers() {
             id: true,
             name: true,
             email: true,
+            profileImage: true,
             decks: {
                 select: {
                     id: true,
