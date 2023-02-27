@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { CreateUser, User } from "../model/user";
-import { createUser } from "../repositories/CreateUserRepository";
-import { getUsers } from "../repositories/ListUsersRepository";
+import { CreateUser, User } from "../../model/user";
+import { createUser } from "../../repositories/CreateUserRepository";
+import { getUsers } from "../../repositories/ListUsersRepository";
 
 export async function createUserController(req: Request, res: Response) {
     const data: CreateUser = req.body;

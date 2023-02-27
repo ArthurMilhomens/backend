@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-import { Deck } from "../model/deck";
+import { PrismaClient, Deck } from "@prisma/client";
 
 export async function getDeckById(id: string): Promise<Deck> {
     const prisma = new PrismaClient();

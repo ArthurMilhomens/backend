@@ -1,14 +1,16 @@
+import { Card } from "@prisma/client";
+
 export interface Deck {
     id: string;
     name: string;
     colors: string[];
-    cards: string[];
+    cards: Card[];
     userId: string;
 }
 
 export interface CreateDeck {
     name: string;
     colors: string[];
-    cards: string[];
+    cards: Card[];
     userId: string;
 }

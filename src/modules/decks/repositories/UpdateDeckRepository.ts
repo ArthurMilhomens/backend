@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import { CreateDeck, Deck } from "../model/deck";
+import { PrismaClient, Deck } from "@prisma/client";
+import { CreateDeck } from "../model/deck";
 
 export async function updateDeck(id: string, data: CreateDeck): Promise<Deck> {
     const prisma = new PrismaClient();
@@ -8,7 +8,6 @@ export async function updateDeck(id: string, data: CreateDeck): Promise<Deck> {
         where: { id },
         data: {
             name: data.name,
-            cards: data.cards,
             colors: data.colors,
         }
     });

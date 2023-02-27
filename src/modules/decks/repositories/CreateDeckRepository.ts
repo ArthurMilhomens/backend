@@ -1,19 +1,14 @@
-import { PrismaClient } from "@prisma/client";
-import { CreateDeck, Deck } from "../model/deck";
+import { PrismaClient, Deck } from "@prisma/client";
+import { CreateDeck } from "../model/deck";
 
-export async function createDeck(data: CreateDeck): Promise<Deck> {
+export async function createDeck(data: Deck): Promise<Deck> {
     const prisma = new PrismaClient();
 
     const deck = await prisma.deck.create({
         data: {
+            userId: data.userId,
             name: data.name,
-            cards: data.cards,
             colors: data.colors,
-            User: {
-                connect: {
-                    id: data.userId
-                }
-            }
         }
     });
 
