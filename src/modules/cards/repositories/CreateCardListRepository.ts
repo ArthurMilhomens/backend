@@ -1,4 +1,4 @@
-import { PrismaClient, Deck, Card } from "@prisma/client";
+import { PrismaClient, Card } from "@prisma/client";
 
 export async function createCardList(data: Card[]): Promise<void> {
     const prisma = new PrismaClient();

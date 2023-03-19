@@ -22,7 +22,7 @@ model Deck {
   id     String   @id @default(uuid())
   name   String
   colors String[]
-  cards  Card[]
+  cards  CardsOnDecks[]
   User   User     @relation(fields: [userId], references: [id])
   userId String
 }
@@ -56,5 +56,15 @@ model Card {
   flavor_text String
   card_back_id String
   prices String
-  decks Deck[]
+  decks CardsOnDecks[]
+}
+
+model CardsOnDecks {
+  deck Deck @relation(fields: [deckId], references: [id])
+  deckId String
+  card Card @relation(fields: [cardId], references: [id])
+  cardId String
+  qtd String 
+
+  @@id([deckId, cardId])
 }

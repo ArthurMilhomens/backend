@@ -1,7 +1,8 @@
-import { Deck } from "@prisma/client";
+import { Card } from "@prisma/client";
 import { Request, Response } from "express";
 import { Token } from "../../../utils/jwt";
-import { CreateDeck } from "../model/deck";
+import { findCardsByName } from "../../cards/repositories/FindCardsByName";
+import { CreateDeck, RequestCards } from "../model/deck";
 import { createDeck } from "../repositories/CreateDeckRepository";
 
 const jwt = new Token();
@@ -11,8 +12,17 @@ export async function createDeckController(req: Request, res: Response) {
     
     const verify: any = await jwt.verifyAccessToken(accessToken);
 
-    const data: Deck = {
+    const cardsToSearch = req.body.cards.map((card: RequestCards) => card.name);
+
+    const cards = await findCardsByName(cardsToSearch);
+
+    const filteredCards = cards.map((card: Card) => {
+        return { id: card.id }
+    });
+
+    const data: CreateDeck = {
         ...req.body,
+        cards: filteredCards,
         userId: verify.payload.id,
     };
 
