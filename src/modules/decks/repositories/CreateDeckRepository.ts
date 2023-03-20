@@ -10,7 +10,7 @@ export async function createDeck(data: CreateDeck): Promise<Deck> {
             name: data.name,
             colors: data.colors,
             cards: {
-                connect: data.cards
+                create: data.cards
             }
         }
     });

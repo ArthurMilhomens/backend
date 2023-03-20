@@ -19,52 +19,52 @@ model User {
 }
 
 model Deck {
-  id     String   @id @default(uuid())
+  id     String         @id @default(uuid())
   name   String
   colors String[]
   cards  CardsOnDecks[]
-  User   User     @relation(fields: [userId], references: [id])
+  User   User           @relation(fields: [userId], references: [id])
   userId String
 }
 
 model Card {
-  object String
-  id String @id
-  oracle_id String
+  object         String
+  id             String         @id
+  oracle_id      String
   multiverse_ids Int[]
-  name String
-  scryfall_uri String
-  highres_image Boolean
-  image_status String
-  image_uris String
-  mana_cost String
-  cmc Float
-  type_line String
-  oracle_text String
-  power String
-  toughness String
-  colors String[]
-  legalities String[]
-  set_id String
-  set String
-  set_name String
-  set_type String
-  set_uri String
+  name           String
+  scryfall_uri   String
+  highres_image  Boolean
+  image_status   String
+  image_uris     String
+  mana_cost      String
+  cmc            Float
+  type_line      String
+  oracle_text    String
+  power          String
+  toughness      String
+  colors         String[]
+  legalities     String[]
+  set_id         String
+  set            String
+  set_name       String
+  set_type       String
+  set_uri        String
   set_search_uri String
-  rulings_uri String
-  rarity String
-  flavor_text String
-  card_back_id String
-  prices String
-  decks CardsOnDecks[]
+  rulings_uri    String
+  rarity         String
+  flavor_text    String
+  card_back_id   String
+  prices         String
+  decks          CardsOnDecks[]
 }
 
 model CardsOnDecks {
-  deck Deck @relation(fields: [deckId], references: [id])
+  deck   Deck   @relation(fields: [deckId], references: [id])
   deckId String
-  card Card @relation(fields: [cardId], references: [id])
+  card   Card   @relation(fields: [cardId], references: [id])
   cardId String
-  qtd String 
+  qtd    Int
 
   @@id([deckId, cardId])
 }

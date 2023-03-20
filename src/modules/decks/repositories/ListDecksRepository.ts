@@ -4,7 +4,13 @@ export async function getDecks() {
     const prisma = new PrismaClient();
 
     const decks = await prisma.deck.findMany({
-        include: { cards: true }
+        include: {
+            cards: {
+                include: {
+                    card: true,
+                }
+            }
+        }
     });
 
     return decks

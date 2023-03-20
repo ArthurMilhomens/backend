@@ -16,7 +16,8 @@ export interface CreateDeck {
 }
 
 export interface Cards {
-    id: string;
+    cardId: string;
+    qtd: number;
 }
 
 export interface RequestCards {
