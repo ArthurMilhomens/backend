@@ -10,6 +10,7 @@ const jwt = new Token();
 export async function createDeckController(req: Request, res: Response) {
     const accessToken = req.headers['authorization'];
     const verify: any = await jwt.verifyAccessToken(accessToken);
+    
     let colors: string[] = [];
 
     const cardsToSearch = req.body.cards.map((card: RequestCards) => card.name);
@@ -31,7 +32,7 @@ export async function createDeckController(req: Request, res: Response) {
         ...req.body,
         colors,
         cards: filteredCards,
-        userId: verify.payload.id,
+        userId: verify.payload.id
     };
 
     const deck = await createDeck(data);
