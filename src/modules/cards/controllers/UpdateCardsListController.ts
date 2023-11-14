@@ -1,15 +1,8 @@
 import { Request, Response } from "express";
 import CardListData from "../../../../cards.json";
 import { createCardList } from "../repositories/CreateCardListRepository";
-// import { Token } from "../../../utils/jwt";
-
-// const jwt = new Token();
 
 export async function updateCardsListController(req: Request, res: Response) {
-    // const accessToken = req.headers['authorization'];
-    
-    // const verify: any = await jwt.verifyAccessToken(accessToken);
-    
     const data: any = CardListData
 
     function getLegalities(options: any) {

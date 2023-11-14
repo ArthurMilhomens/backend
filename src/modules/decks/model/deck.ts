@@ -11,12 +11,13 @@ export interface Deck {
 export interface CreateDeck {
     name: string;
     colors: string[];
-    cards: Cards[];
+    cards: CardsOnDeck[];
     userId: string;
 }
 
-export interface Cards {
-    id: string;
+export interface CardsOnDeck {
+    cardId: string;
+    qtd: string;
 }
 
 export interface RequestCards {
