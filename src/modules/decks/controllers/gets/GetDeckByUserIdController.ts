@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getDeckByUserId } from "../../repositories/ListDeckByUserIdRepository";
+import { getDeckByUserId } from "../../repositories/gets/ListDeckByUserIdRepository";
 import { Token } from "../../../../utils/jwt";
 
 const jwt = new Token();

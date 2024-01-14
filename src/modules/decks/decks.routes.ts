@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import { createDeckController } from './controllers/CreateDeckController';
-import { deleteDeckController } from './controllers/DeleteDeckController';
+import { deleteDeckController } from './controllers/deletes/DeleteDeckController';
 import { getDeckByIdController } from './controllers/gets/GetDeckByIdController';
 import { listDecks } from './controllers/gets/ListDecksController';
 import { updateDeckController } from './controllers/UpdateDeckController';
-import { deleteAllDecksController } from './controllers/DeleteAllDecksController';
+import { deleteAllDecksController } from './controllers/deletes/DeleteAllDecksController';
 import { getDeckByUserIdController } from './controllers/gets/GetDeckByUserIdController';
 
 const decksRoutes = Router();

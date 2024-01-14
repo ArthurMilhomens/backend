@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { deleteAllDecks } from "../repositories/DeleteAllDecksRepository";
-import { Token } from "../../../utils/jwt";
+import { deleteAllDecks } from "../../repositories/deletes/DeleteAllDecksRepository";
+import { Token } from "../../../../utils/jwt";
 
 const jwt = new Token();
 

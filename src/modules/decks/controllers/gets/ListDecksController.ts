@@ -1,4 +1,4 @@
-import { getDecks } from "../../repositories/ListDecksRepository";
+import { getDecks } from "../../repositories/gets/ListDecksRepository";
 import { Request, Response } from "express";
 
 export async function listDecks(req: Request, res: Response) {

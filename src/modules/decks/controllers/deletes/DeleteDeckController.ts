@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { deleteDeck } from "../repositories/DeleteDeckRepository";
-import { getDecks } from "../repositories/ListDecksRepository";
+import { deleteDeck } from "../../repositories/deletes/DeleteDeckRepository";
+import { getDecks } from "../../repositories/gets/ListDecksRepository";
 
 export async function deleteDeckController(req: Request, res: Response) {
     const { id } = req.query;
