@@ -54,9 +54,12 @@ CREATE TABLE "Card" (
 );
 
 -- CreateTable
-CREATE TABLE "_CardToDeck" (
-    "A" TEXT NOT NULL,
-    "B" TEXT NOT NULL
+CREATE TABLE "CardsOnDecks" (
+    "deckId" TEXT NOT NULL,
+    "cardId" TEXT NOT NULL,
+    "qtd" TEXT NOT NULL,
+
+    CONSTRAINT "CardsOnDecks_pkey" PRIMARY KEY ("deckId","cardId")
 );
 
 -- CreateIndex
@@ -64,9 +67,3 @@ CREATE UNIQUE INDEX "User_name_key" ON "User"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
-
--- CreateIndex
-CREATE UNIQUE INDEX "_CardToDeck_AB_unique" ON "_CardToDeck"("A", "B");
-
--- CreateIndex
-CREATE INDEX "_CardToDeck_B_index" ON "_CardToDeck"("B");
