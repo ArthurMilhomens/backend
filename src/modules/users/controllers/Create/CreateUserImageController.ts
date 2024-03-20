@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
-import { getUsers } from "../../repositories/ListUsersRepository";
+import { getUsers } from "../../repositories/List/ListUsersRepository";
 import { updateUser } from "../../repositories/UpdateUserRepository";
+import { User } from "../../model/user";
 
 export async function createUserImageController(req: Request, res: Response) {
     const data = req.file;

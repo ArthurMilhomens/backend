@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { UpdateUser } from "../model/user";
-import { getUsers } from "../repositories/ListUsersRepository";
+import { getUsers } from "../repositories/List/ListUsersRepository";
 import { updateUser } from "../repositories/UpdateUserRepository";
 
 export async function updateUserController(req: Request, res: Response) {

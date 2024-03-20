@@ -10,3 +10,11 @@ export async function createCardList(data: Card[]): Promise<void> {
 
     return
 }
+
+export async function createCardListTest(data: any[]): Promise<void> {
+
+    // await prisma.batch(data, { transaction: true });
+    await prisma.$transaction(data);
+
+    return
+}
