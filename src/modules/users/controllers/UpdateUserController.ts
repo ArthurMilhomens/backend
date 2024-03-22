@@ -6,7 +6,7 @@ import { updateUser } from "../repositories/UpdateUserRepository";
 export async function updateUserController(req: Request, res: Response) {
     const data: UpdateUser = req.body;
     const { id } = req.query;
-    const users = await getUsers();
+    const users = await getUsers({});
 
     const userAlreadyExists = users.find(user => user.id === id)
 

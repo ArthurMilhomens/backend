@@ -5,7 +5,7 @@ import { User } from "../model/user";
 
 export async function deleteUserController(req: Request, res: Response) {
     const { id } = req.query;
-    const users = await getUsers();
+    const users = await getUsers({});
 
     const userAlreadyExists = users.find(user  => user.id === id)
 

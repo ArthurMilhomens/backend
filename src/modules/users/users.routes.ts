@@ -2,7 +2,6 @@ import { Router } from 'express';
 import multer from 'multer';
 import { storage } from '../../utils/multerConfig';
 import { createUserController } from './controllers/Create/CreateUserController';
-import { createUserImageController } from './controllers/Create/CreateUserImageController';
 import { deleteUserController } from './controllers/DeleteUserController';
 import { listUsers } from './controllers/List/ListUsersController';
 import { loginController } from './controllers/LoginController';
@@ -17,10 +16,6 @@ usersRoutes.post("/login", (request, response) => {
 
 usersRoutes.post("/create", (request, response) => {
     return createUserController(request, response);
-});
-
-usersRoutes.put("/image", upload.single('image'), (request, response) => {
-    return createUserImageController(request, response);
 });
 
 usersRoutes.get("/", (request, response) => {

@@ -12,6 +12,12 @@ export async function createUser(data: CreateUser): Promise<User> {
 
     const user = await prisma.user.create({
         data,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            profileImage: true,
+        }
     });
 
     const userWithAcessToken = {

@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import createError from 'http-errors';
+import { response } from 'express';
 
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "";
 
@@ -26,10 +27,14 @@ export class Token implements IAccessToken {
             jwt.verify(token, accessTokenSecret, (err: any, payload: any) => {
                 if (err) {
                     const message = err.name == 'JsonWebTokenError' ? 'Unauthorized' : err.message
-                    return reject(createError.Unauthorized(message))
+                    return reject({
+                        message
+                    })
                 }
                 resolve(payload)
             })
-        })
+        }).catch((err: any) => {
+            return false
+        });
     }
 }

@@ -5,7 +5,7 @@ import { getUsers } from "../../repositories/List/ListUsersRepository";
 
 export async function createUserController(req: Request, res: Response) {
     const data: CreateUser = req.body;
-    const users = await getUsers();
+    const users = await getUsers({});
 
     const userAlreadyExists = users.find(user => user.email === data.email)
 
@@ -14,7 +14,7 @@ export async function createUserController(req: Request, res: Response) {
     }
 
     const user = await createUser({
-        ...data
+        ...data,
     })
 
     return res.status(201).json(user)
