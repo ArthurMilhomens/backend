@@ -28,5 +28,5 @@ export interface LoginUser {
 }
 
 export type UserFilter = {
-    name?: string;
+    search?: string;
 }
