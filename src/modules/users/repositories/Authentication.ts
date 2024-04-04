@@ -6,8 +6,9 @@ import { Token } from '../../../utils/jwt';
 
 const jwt = new Token();
 
+const prisma = new PrismaClient();
+
 export async function authenticate({ email, password }: LoginUser): Promise<User> {
-    const prisma = new PrismaClient();
 
     const user = await prisma.user.findUniqueOrThrow({
         where: { email },

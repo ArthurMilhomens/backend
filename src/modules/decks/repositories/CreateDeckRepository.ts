@@ -1,8 +1,9 @@
 import { PrismaClient, Deck } from "@prisma/client";
 import { CreateDeck } from "../model/deck";
 
+const prisma = new PrismaClient();
+
 export async function createDeck(data: CreateDeck): Promise<Deck> {
-    const prisma = new PrismaClient();
 
     const deck = await prisma.deck.create({
         data: {

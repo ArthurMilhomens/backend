@@ -6,6 +6,7 @@ import { deleteUserController } from './controllers/DeleteUserController';
 import { listUsers } from './controllers/List/ListUsersController';
 import { loginController } from './controllers/LoginController';
 import { updateUserController } from './controllers/UpdateUserController';
+import { listUserDetails } from './controllers/List/ListUserDetailsController';
 
 const usersRoutes = Router();
 const upload = multer({ storage });
@@ -20,6 +21,9 @@ usersRoutes.post("/create", (request, response) => {
 
 usersRoutes.get("/", (request, response) => {
     return listUsers(request, response);
+})
+usersRoutes.get("/details", (request, response) => {
+    return listUserDetails(request, response);
 })
 
 usersRoutes.put("/update", (request, response) => {

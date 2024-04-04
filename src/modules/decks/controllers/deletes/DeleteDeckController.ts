@@ -10,7 +10,7 @@ export async function deleteDeckController(req: Request, res: Response) {
 
     if (deckAlreadyExists) {
         await deleteDeck(deckAlreadyExists.id)
-        return res.status(201).json({ message: "Deck deleted" })
+        return res.status(200).json({ message: "Deck deleted" })
     }
 
     return res.status(404).json({ message: "Deck not found" })

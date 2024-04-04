@@ -1,7 +1,8 @@
 import { PrismaClient, Deck } from "@prisma/client";
 
+const prisma = new PrismaClient();
+
 export async function getDeckById(id: string): Promise<Deck> {
-    const prisma = new PrismaClient();
 
     const deck = await prisma.deck.findUniqueOrThrow({
         where: { id },

@@ -1,7 +1,8 @@
 import { PrismaClient, Deck } from "@prisma/client";
 
+const prisma = new PrismaClient();
+
 export async function getDeckByUserId(id: string): Promise<Deck[]> {
-    const prisma = new PrismaClient();
 
     const decks = await prisma.deck.findMany({
         where: { userId: id },

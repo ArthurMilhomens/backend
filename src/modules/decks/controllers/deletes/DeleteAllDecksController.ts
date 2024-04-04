@@ -10,5 +10,5 @@ export async function deleteAllDecksController(req: Request, res: Response) {
 
   verify.payload.id && await deleteAllDecks();
 
-  return res.status(201).json({ message: "All decks have been deleted!" });
+  return res.status(200).json({ message: "All decks have been deleted!" });
 }

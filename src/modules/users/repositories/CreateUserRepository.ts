@@ -5,8 +5,9 @@ import { Token } from '../../../utils/jwt';
 
 const jwt = new Token();
 
+const prisma = new PrismaClient();
+
 export async function createUser(data: CreateUser): Promise<User> {
-    const prisma = new PrismaClient();
 
     data.password = bcrypt.hashSync(data.password, 8);
 
