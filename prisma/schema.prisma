@@ -10,12 +10,14 @@ datasource db {
 }
 
 model User {
-  id           String  @id @default(uuid())
-  name         String  @unique
-  email        String  @unique
+  id           String    @id @default(uuid())
+  name         String    @unique
+  email        String    @unique
   password     String
   decks        Deck[]
   profileImage String?
+  followedBy   Follows[] @relation("following")
+  following    Follows[] @relation("followedBy")
 }
 
 model Deck {
@@ -68,4 +70,17 @@ model CardsOnDecks {
   card Card @relation(fields: [cardId], references: [id])
 
   @@id([deckId, cardId])
+}
+
+model Follows {
+  id           Int    @id @default(autoincrement())
+  followedBy   User   @relation("followedBy", fields: [followedById], references: [id])
+  followedById String
+
+  following   User   @relation("following", fields: [followingId], references: [id])
+  followingId String
+
+  createdAt DateTime @default(now())
+
+  @@unique([followedById, followingId])
 }

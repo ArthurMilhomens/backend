@@ -17,6 +17,8 @@ export async function getUsers({ search = "" }: UserFilter) {
       name: true,
       email: true,
       profileImage: true,
+      following: true,
+      followedBy: true
     },
   });
 
